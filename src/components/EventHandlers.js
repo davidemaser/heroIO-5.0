@@ -86,7 +86,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   const a = $('.loadItem').attr(app.handlers.i);
   Json.traverseJSON(true, a);
 }).on('click', '.copy-zone', () => {
-  Utilities.OpenInNewTab('https://github.com/davidemaser/heroIO');
+  Utilities.OpenInNewTab('https://github.com/davidemaser/heroIO-5.0');
 }).on('click', '.showHelp', () => {
   $(app.objects.he).toggle();
   if ($(app.objects.he).css('display') === 'block') {
@@ -332,7 +332,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
       Json.traverseJSON(true, a);
       $('#loadandsave-zone').css('display', 'none');
     } else {
-      panelAlert('Please select a valid data item from the dropdown', 'error');
+      Errors.panelAlert('Please select a valid data item from the dropdown', 'error');
     }
   } catch (e) {
 

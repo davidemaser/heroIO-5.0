@@ -2,6 +2,7 @@
  * Created by David Maser on 09/06/2017.
  */
 import {app} from './Config';
+import {Errors} from './Errors';
 export const Storage = {
   /**
    * Saves a json node to localStorage
@@ -25,7 +26,7 @@ export const Storage = {
       }
       localStorage.setItem('pgb_SavedNode_LS', newList);
       localStorage.setItem(`pgb_SavedNode_${name}`, val);
-      core.panelAlert('Data Saved To Local Storage', 'good');
+      Errors.panelAlert('Data Saved To Local Storage', 'good');
     }
   },
   choseLocalSave() {
@@ -54,7 +55,7 @@ export const Storage = {
    * @constructor
    */
   doLocalSave(method) {
-    if (method === 'do' || method === null) {
+    if (method === 'do' || method === null ||method === undefined || method === '') {
       $('#loadandsave-zone').attr('data-reason', 'save').css('display', 'block');
     } else if (method === 'reset') {
       localStorage.setItem('pgb_SavedNode_LS', "");

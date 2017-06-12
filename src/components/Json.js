@@ -42,6 +42,7 @@ export const Json = {
   },
   traverseJSON(storage, nodeName, fromAJAX) {
     let ctc;
+    let build,bItems;
     if ($(`${app.objects.b} textarea`).val() !== '' || localStorage.getItem('pgb_SavedNode') !== '' && fromAJAX === undefined) {
       if (storage === false) {
         ctc = $(`${app.objects.b} textarea`).val();
@@ -61,8 +62,8 @@ export const Json = {
       let formItems = $(app.objects.cl).length;
       let formArray = [];
       if (formItems < len) {
-        let build = true,
-          bItems = len - formItems;
+        build = true;
+        bItems = len - formItems;
       }
       for (let h = 0; h < bItems; h++) {
         Items.addItems();
@@ -91,8 +92,8 @@ export const Json = {
       let formItems = $(app.objects.cl).length;
       let formArray = [];
       if (formItems < len) {
-        var build = true,
-          bItems = len - formItems;
+        build = true;
+        bItems = len - formItems;
       }
       for (let h = 0; h < bItems; h++) {
         Items.addItems();
@@ -146,7 +147,7 @@ export const Json = {
       $(formEl).find('.objButtonLink').val(aCode[i].button.url);
       if (aCode[i].date.delay === true || aCode[i].date.delay === false) {
         window.setTimeout(() => {
-          core.panelAlert('Some delay entries are not numerical. Make sure to set all delay entries to a numerical value manually.', 'error');
+          Errors.panelAlert('Some delay entries are not numerical. Make sure to set all delay entries to a numerical value manually.', 'error');
         }, 2000);
       } else if (aCode[i].date.delay === '' || aCode[i].date.delay === null || aCode[i].date.delay === undefined || aCode[i].date.delay === 'undefined') {
         $(formEl).find('.objDelay').val(0);
@@ -221,6 +222,10 @@ export const Json = {
       const lastItem = nodes - 1;
       let page_model = '';
       let i;
+      let elemA, elemAA, elemAAA = true;
+      let elemB,elemC,elemD,elemDD = false;
+      let elemE = 0;
+      let elemAAAA = 'null';
       if (mode === 'hello') {
         page_model += '{\n    "hello": [\n';
         for (i = 0; i < nodes; i++) {
@@ -243,38 +248,38 @@ export const Json = {
         for (i = 0; i < nodes; i++) {
           //mapping
           if (aCode[i][15].value === '' || aCode[i][15].value === null || aCode[i][15].value === undefined) {
-            var elemAAAA = 'null';
+            elemAAAA = 'null';
           } else {
             elemAAAA = aCode[i][15].value;
           }
           if (aCode[i][16].value === '' || aCode[i][16].value === null || aCode[i][16].value === undefined) {
-            var elemA = true;
+            elemA = true;
           } else {
             elemA = aCode[i][16].value;
           }
           if (aCode[i][17].value === '' || aCode[i][17].value === null || aCode[i][17].value === undefined) {
-            var elemAA = true;
+            elemAA = true;
           } else {
             elemAA = aCode[i][17].value;
           }
           if (aCode[i][18].value === '' || aCode[i][18].value === null || aCode[i][18].value === undefined) {
-            var elemAAA = true;
+            elemAAA = true;
           } else {
             elemAAA = aCode[i][18].value;
           }
           if (aCode[i][14].value === '' || aCode[i][14].value === null || aCode[i][14].value === undefined) {
-            var elemB = false;
+            elemB = false;
           } else {
             elemB = aCode[i][14].value;
           }
           if (aCode[i][19].value === '' || aCode[i][19].value === null || aCode[i][19].value === undefined) {
-            var elemC = false;
+            elemC = false;
           } else {
             elemC = aCode[i][19].value;
           }
           if (aCode[i][22] !== undefined) {
             if (aCode[i][22].value === '' || aCode[i][22].value === null || aCode[i][22].value === undefined) {
-              var elemD = true;
+              elemD = true;
             } else {
               elemD = aCode[i][22].value;
             }
@@ -283,7 +288,7 @@ export const Json = {
           }
           if (aCode[i][20] !== undefined) {
             if (aCode[i][20].value === '' || aCode[i][20].value === null || aCode[i][20].value === undefined) {
-              var elemDD = false;
+              elemDD = false;
             } else {
               elemDD = aCode[i][20].value;
             }
@@ -292,7 +297,7 @@ export const Json = {
           }
           if (aCode[i][21] !== undefined) {
             if (aCode[i][21].value === '' || aCode[i][21].value === null || aCode[i][21].value === undefined) {
-              var elemE = 0;
+              elemE = 0;
             } else {
               elemE = aCode[i][21].value;
             }

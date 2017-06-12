@@ -16140,9 +16140,11 @@ const Items = {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Config__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Errors__ = __webpack_require__(2);
 /**
  * Created by David Maser on 09/06/2017.
  */
+
 
 const Storage = {
   /**
@@ -16167,7 +16169,7 @@ const Storage = {
       }
       localStorage.setItem('pgb_SavedNode_LS', newList);
       localStorage.setItem(`pgb_SavedNode_${name}`, val);
-      core.panelAlert('Data Saved To Local Storage', 'good');
+      __WEBPACK_IMPORTED_MODULE_1__Errors__["a" /* Errors */].panelAlert('Data Saved To Local Storage', 'good');
     }
   },
   choseLocalSave() {
@@ -16196,7 +16198,7 @@ const Storage = {
    * @constructor
    */
   doLocalSave(method) {
-    if (method === 'do' || method === null) {
+    if (method === 'do' || method === null ||method === undefined || method === '') {
       $('#loadandsave-zone').attr('data-reason', 'save').css('display', 'block');
     } else if (method === 'reset') {
       localStorage.setItem('pgb_SavedNode_LS', "");
@@ -16601,7 +16603,7 @@ $(__WEBPACK_IMPORTED_MODULE_0__components_Config__["a" /* app */].objects.bo).on
   const a = $('.loadItem').attr(__WEBPACK_IMPORTED_MODULE_0__components_Config__["a" /* app */].handlers.i);
   __WEBPACK_IMPORTED_MODULE_3__Json__["a" /* Json */].traverseJSON(true, a);
 }).on('click', '.copy-zone', () => {
-  __WEBPACK_IMPORTED_MODULE_1__Utilities__["a" /* Utilities */].OpenInNewTab('https://github.com/davidemaser/heroIO');
+  __WEBPACK_IMPORTED_MODULE_1__Utilities__["a" /* Utilities */].OpenInNewTab('https://github.com/davidemaser/heroIO-5.0');
 }).on('click', '.showHelp', () => {
   $(__WEBPACK_IMPORTED_MODULE_0__components_Config__["a" /* app */].objects.he).toggle();
   if ($(__WEBPACK_IMPORTED_MODULE_0__components_Config__["a" /* app */].objects.he).css('display') === 'block') {
@@ -16847,7 +16849,7 @@ $(__WEBPACK_IMPORTED_MODULE_0__components_Config__["a" /* app */].objects.bo).on
       __WEBPACK_IMPORTED_MODULE_3__Json__["a" /* Json */].traverseJSON(true, a);
       $('#loadandsave-zone').css('display', 'none');
     } else {
-      panelAlert('Please select a valid data item from the dropdown', 'error');
+      __WEBPACK_IMPORTED_MODULE_9__Errors__["a" /* Errors */].panelAlert('Please select a valid data item from the dropdown', 'error');
     }
   } catch (e) {
 
@@ -17464,6 +17466,7 @@ const Json = {
   },
   traverseJSON(storage, nodeName, fromAJAX) {
     let ctc;
+    let build,bItems;
     if ($(`${__WEBPACK_IMPORTED_MODULE_1__Config__["a" /* app */].objects.b} textarea`).val() !== '' || localStorage.getItem('pgb_SavedNode') !== '' && fromAJAX === undefined) {
       if (storage === false) {
         ctc = $(`${__WEBPACK_IMPORTED_MODULE_1__Config__["a" /* app */].objects.b} textarea`).val();
@@ -17483,8 +17486,8 @@ const Json = {
       let formItems = $(__WEBPACK_IMPORTED_MODULE_1__Config__["a" /* app */].objects.cl).length;
       let formArray = [];
       if (formItems < len) {
-        let build = true,
-          bItems = len - formItems;
+        build = true;
+        bItems = len - formItems;
       }
       for (let h = 0; h < bItems; h++) {
         __WEBPACK_IMPORTED_MODULE_2__Items__["a" /* Items */].addItems();
@@ -17513,8 +17516,8 @@ const Json = {
       let formItems = $(__WEBPACK_IMPORTED_MODULE_1__Config__["a" /* app */].objects.cl).length;
       let formArray = [];
       if (formItems < len) {
-        var build = true,
-          bItems = len - formItems;
+        build = true;
+        bItems = len - formItems;
       }
       for (let h = 0; h < bItems; h++) {
         __WEBPACK_IMPORTED_MODULE_2__Items__["a" /* Items */].addItems();
@@ -17568,7 +17571,7 @@ const Json = {
       $(formEl).find('.objButtonLink').val(aCode[i].button.url);
       if (aCode[i].date.delay === true || aCode[i].date.delay === false) {
         window.setTimeout(() => {
-          core.panelAlert('Some delay entries are not numerical. Make sure to set all delay entries to a numerical value manually.', 'error');
+          __WEBPACK_IMPORTED_MODULE_3__Errors__["a" /* Errors */].panelAlert('Some delay entries are not numerical. Make sure to set all delay entries to a numerical value manually.', 'error');
         }, 2000);
       } else if (aCode[i].date.delay === '' || aCode[i].date.delay === null || aCode[i].date.delay === undefined || aCode[i].date.delay === 'undefined') {
         $(formEl).find('.objDelay').val(0);
@@ -17643,6 +17646,10 @@ const Json = {
       const lastItem = nodes - 1;
       let page_model = '';
       let i;
+      let elemA, elemAA, elemAAA = true;
+      let elemB,elemC,elemD,elemDD = false;
+      let elemE = 0;
+      let elemAAAA = 'null';
       if (mode === 'hello') {
         page_model += '{\n    "hello": [\n';
         for (i = 0; i < nodes; i++) {
@@ -17665,38 +17672,38 @@ const Json = {
         for (i = 0; i < nodes; i++) {
           //mapping
           if (aCode[i][15].value === '' || aCode[i][15].value === null || aCode[i][15].value === undefined) {
-            var elemAAAA = 'null';
+            elemAAAA = 'null';
           } else {
             elemAAAA = aCode[i][15].value;
           }
           if (aCode[i][16].value === '' || aCode[i][16].value === null || aCode[i][16].value === undefined) {
-            var elemA = true;
+            elemA = true;
           } else {
             elemA = aCode[i][16].value;
           }
           if (aCode[i][17].value === '' || aCode[i][17].value === null || aCode[i][17].value === undefined) {
-            var elemAA = true;
+            elemAA = true;
           } else {
             elemAA = aCode[i][17].value;
           }
           if (aCode[i][18].value === '' || aCode[i][18].value === null || aCode[i][18].value === undefined) {
-            var elemAAA = true;
+            elemAAA = true;
           } else {
             elemAAA = aCode[i][18].value;
           }
           if (aCode[i][14].value === '' || aCode[i][14].value === null || aCode[i][14].value === undefined) {
-            var elemB = false;
+            elemB = false;
           } else {
             elemB = aCode[i][14].value;
           }
           if (aCode[i][19].value === '' || aCode[i][19].value === null || aCode[i][19].value === undefined) {
-            var elemC = false;
+            elemC = false;
           } else {
             elemC = aCode[i][19].value;
           }
           if (aCode[i][22] !== undefined) {
             if (aCode[i][22].value === '' || aCode[i][22].value === null || aCode[i][22].value === undefined) {
-              var elemD = true;
+              elemD = true;
             } else {
               elemD = aCode[i][22].value;
             }
@@ -17705,7 +17712,7 @@ const Json = {
           }
           if (aCode[i][20] !== undefined) {
             if (aCode[i][20].value === '' || aCode[i][20].value === null || aCode[i][20].value === undefined) {
-              var elemDD = false;
+              elemDD = false;
             } else {
               elemDD = aCode[i][20].value;
             }
@@ -17714,7 +17721,7 @@ const Json = {
           }
           if (aCode[i][21] !== undefined) {
             if (aCode[i][21].value === '' || aCode[i][21].value === null || aCode[i][21].value === undefined) {
-              var elemE = 0;
+              elemE = 0;
             } else {
               elemE = aCode[i][21].value;
             }
