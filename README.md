@@ -10,3 +10,5 @@ and uses webpack to transpile and bundle the project code.
 2- Execute npm run build to execute the webpack build process
 
 3- All files required to run the app will be in the dist/ folder
+
+Report all issues to: https://github.com/davidemaser/heroIO-5.0/issues
