@@ -74,7 +74,7 @@ export const Errors ={
       $('.errorListing').empty();
       for (let j = 0; j < errorLog.length; j++) {
         $('.errorListing').prepend(`<li><a href="javascript:;" class="errorItem ${errorLog[j].die}" ${app.handlers.i}="${j}">Item ${errorLog[j].form} : ${errorLog[j].obj} : ${errorLog[j].prob}</a></li>`);
-        core.registerErrorButtons(errorLog[j].form, errorLog[j].elem, j, errorLog[j].prob, errorLog[j].die);
+        this.registerErrorButtons(errorLog[j].form, errorLog[j].elem, j, errorLog[j].prob, errorLog[j].die);
       }
       $(app.objects.el).find('button').html(`Warnings<span class="label label-default numerrors">${errorLog.length}</span><span class="caret"></span>`);
     } else {

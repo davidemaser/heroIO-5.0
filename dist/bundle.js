@@ -10497,7 +10497,7 @@ const Errors ={
       $('.errorListing').empty();
       for (let j = 0; j < errorLog.length; j++) {
         $('.errorListing').prepend(`<li><a href="javascript:;" class="errorItem ${errorLog[j].die}" ${__WEBPACK_IMPORTED_MODULE_0__Config__["a" /* app */].handlers.i}="${j}">Item ${errorLog[j].form} : ${errorLog[j].obj} : ${errorLog[j].prob}</a></li>`);
-        core.registerErrorButtons(errorLog[j].form, errorLog[j].elem, j, errorLog[j].prob, errorLog[j].die);
+        this.registerErrorButtons(errorLog[j].form, errorLog[j].elem, j, errorLog[j].prob, errorLog[j].die);
       }
       $(__WEBPACK_IMPORTED_MODULE_0__Config__["a" /* app */].objects.el).find('button').html(`Warnings<span class="label label-default numerrors">${errorLog.length}</span><span class="caret"></span>`);
     } else {
@@ -17403,9 +17403,6 @@ $(() => {
   __WEBPACK_IMPORTED_MODULE_7__components_Init__["a" /* Init */].initHelp();
   __WEBPACK_IMPORTED_MODULE_7__components_Init__["a" /* Init */].getVersion(true);
   __WEBPACK_IMPORTED_MODULE_8__components_Language__["a" /* Language */].languageManager(__WEBPACK_IMPORTED_MODULE_6__components_Config__["a" /* app */].lang, true);
-  window.setInterval(() => {
-    Version.getVersion(false);
-  }, 600000);
   $('.date_obj').datetimepicker({format: 'MM/DD/YYYY HH:mm'});
   $('.btnAdd').attr('disabled', false);
   $('.btnDel').attr('disabled', true);
@@ -17644,9 +17641,11 @@ const Json = {
     try {
       const nodes = aCode.length;
       const lastItem = nodes - 1;
+      let page_model = '';
+      let i;
       if (mode === 'hello') {
-        var page_model = '{\n    "hello": [\n';
-        for (var i = 0; i < nodes; i++) {
+        page_model += '{\n    "hello": [\n';
+        for (i = 0; i < nodes; i++) {
           page_model += `       {\n        "helloItem": "hello${i}",`;
           page_model += '\n        "date": {';
           page_model += `\n          "start": "${aCode[i][0].value}",`;
@@ -17783,7 +17782,7 @@ const Json = {
         if (mode === 'hero') {
           __WEBPACK_IMPORTED_MODULE_3__Errors__["a" /* Errors */].errorHandler();
         }
-        __WEBPACK_IMPORTED_MODULE_3__Errors__["a" /* Errors */].panelAlert('JSON Exported Successfuly', 'good');
+        __WEBPACK_IMPORTED_MODULE_3__Errors__["a" /* Errors */].panelAlert('JSON Exported Successfully', 'good');
       } else {
         __WEBPACK_IMPORTED_MODULE_4__Storage__["a" /* Storage */].saveNodeToLS(page_model, name);
       }

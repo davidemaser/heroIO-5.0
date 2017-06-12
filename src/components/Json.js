@@ -219,9 +219,11 @@ export const Json = {
     try {
       const nodes = aCode.length;
       const lastItem = nodes - 1;
+      let page_model = '';
+      let i;
       if (mode === 'hello') {
-        var page_model = '{\n    "hello": [\n';
-        for (var i = 0; i < nodes; i++) {
+        page_model += '{\n    "hello": [\n';
+        for (i = 0; i < nodes; i++) {
           page_model += `       {\n        "helloItem": "hello${i}",`;
           page_model += '\n        "date": {';
           page_model += `\n          "start": "${aCode[i][0].value}",`;
@@ -358,7 +360,7 @@ export const Json = {
         if (mode === 'hero') {
           Errors.errorHandler();
         }
-        Errors.panelAlert('JSON Exported Successfuly', 'good');
+        Errors.panelAlert('JSON Exported Successfully', 'good');
       } else {
         Storage.saveNodeToLS(page_model, name);
       }
