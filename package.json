@@ -4,8 +4,9 @@
   "description": "Hero banner builder",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "prod": "SET PROD_ENV=1 & webpack"
+    "build": "webpack --progress --colors",
+    "prod": "SET PROD_ENV=1 & webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
