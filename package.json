@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidemaser/heroIO.git"
+    "url": "git+https://github.com/davidemaser/heroIO-5.0.git"
   },
   "author": "David Maser",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/davidemaser/heroIO/issues"
+    "url": "https://github.com/davidemaser/heroIO-5.0/issues"
   },
-  "homepage": "https://github.com/davidemaser/heroIO#readme",
+  "homepage": "https://github.com/davidemaser/heroIO-5.0#readme",
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-loader": "^2.1.0",

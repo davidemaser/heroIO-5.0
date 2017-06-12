@@ -17215,6 +17215,10 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
@@ -17355,8 +17359,8 @@ module.exports = function(module) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, $) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_globals_css__ = __webpack_require__(18);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(global, $) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_globals_css__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_globals_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_globals_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assets_lib_bootstrap_datetimepicker_min_css__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assets_lib_bootstrap_datetimepicker_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__assets_lib_bootstrap_datetimepicker_min_css__);
