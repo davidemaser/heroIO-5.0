@@ -196,7 +196,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   $('.btnSwitch').removeClass('view-active');
   $(`.btnSwitch[data-language="${pfLang}"]`).addClass('view-active');
   if ($(app.objects.ro).children().not('.preview_warning').length > 0) {
-    Preview.previewFeature(pfHero, pfMode, pfLang)
+    Preview.previewFeature(global.pfHero, global.pfMode, global.pfLang)
   }
   Errors.panelAlert('Preview language changed', 'good');
   e.preventDefault();
@@ -406,7 +406,7 @@ $(document).on('keydown', e => {
     $('.btnSwitch').removeClass('view-active');
     $(`.btnSwitch[data-language="${pfLang}"]`).addClass('view-active');
     if ($(app.objects.ro).children().not('.preview_warning').length > 0) {
-      Preview.previewFeature(pfHero, pfMode, pfLang);
+      Preview.previewFeature(global.pfHero, global.pfMode, global.pfLang);
     }
     Errors.panelAlert('Preview language changed', 'good');
     e.preventDefault();
@@ -417,6 +417,6 @@ $(document).on('keydown', e => {
   }
 }).on('scroll', () => {
   Utilities.scrollState('b');
-  sPos = $(window).scrollTop();
-});
+  global.sPos = $(window).scrollTop();
 })
+});

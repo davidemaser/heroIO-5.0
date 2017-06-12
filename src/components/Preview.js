@@ -56,12 +56,12 @@ export const Preview = {
     $(container).show().css('top', sPos + 50);
     $(target).empty().append(outputString);
     if (mode === 'small') {
-      pfHero = heroItem;
-      pfMode = mode;
+      global.pfHero = heroItem;
+      global.pfMode = mode;
       $(target).addClass('renderSmall').attr('data-hero', heroItem).attr('data-language', lang).attr('data-mode', mode);
     } else if (mode === 'large') {
-      pfHero = heroItem;
-      pfMode = mode;
+      global.pfHero = heroItem;
+      global.pfMode = mode;
       $(target).removeClass('renderSmall').attr('data-hero', heroItem).attr('data-language', lang).attr('data-mode', mode);
     }
   }

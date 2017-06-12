@@ -172,17 +172,16 @@ export const Init ={
    * @constructor
    */
   switchModes: (va) => {
-    let pfExport;
     if (va === 'hello') {
       $('*[data-role="hero"]').css('display', 'none');
       $('*[data-role="hello"]').css('display', 'block');
-      let pfExport = 'hello';
+      global.pfExport = 'hello';
       $('.submit_json').attr('data-nmode', 'hello');
       Errors.panelAlert('Switched to Hello Banner Creation mode', 'good');
     } else {
       $('*[data-role="hello"]').css('display', 'none');
       $('*[data-role="hero"]').attr('style', '');
-      let pfExport = 'hero';
+      global.pfExport = 'hero';
       $('.submit_json').attr('data-nmode', 'hero');
       Errors.panelAlert('Switched to Hero Banner Creation mode', 'good');
     }
