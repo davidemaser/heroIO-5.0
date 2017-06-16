@@ -2,7 +2,13 @@
  * Created by David Maser on 09/06/2017.
  */
 import {app} from './Config';
-export const Language = {
+
+export class Language{
+  constructor(lng,init){
+    this.lng = lng;
+    this.init = init || false;
+    this.languageManager(this.lng,this.init);
+  }
   /**
    * Language manager that handles the switching between
    * english and french
@@ -10,7 +16,7 @@ export const Language = {
    * @param {Boolean} init Define wether the language manager should be initialized or if this is a summary language translation process
    * @constructor
    */
-  languageManager: (lng, init) => {
+  languageManager(lng, init){
     let newLang;
     lng = $(app.dom.h).attr('data-language') || lng;
     switch (lng) {

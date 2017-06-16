@@ -2,7 +2,7 @@
  * Created by David Maser on 09/06/2017.
  */
 import {app} from './Config';
-import {Errors} from './Errors';
+import Alert from './Alert';
 export const Init ={
   /**
    * creates the initial form instance by
@@ -177,13 +177,13 @@ export const Init ={
       $('*[data-role="hello"]').css('display', 'block');
       global.pfExport = 'hello';
       $('.submit_json').attr('data-nmode', 'hello');
-      Errors.panelAlert('Switched to Hello Banner Creation mode', 'good');
+      new Alert('Switched to Hello Banner Creation mode', 'good');
     } else {
       $('*[data-role="hello"]').css('display', 'none');
       $('*[data-role="hero"]').attr('style', '');
       global.pfExport = 'hero';
       $('.submit_json').attr('data-nmode', 'hero');
-      Errors.panelAlert('Switched to Hero Banner Creation mode', 'good');
+      new Alert('Switched to Hero Banner Creation mode', 'good');
     }
   },
   /**
@@ -225,7 +225,7 @@ export const Init ={
         }
       },
       error: () => {
-        Errors.panelAlert('Unable to load Help Contents from JSON source', 'error');
+        new Alert('Unable to load Help Contents from JSON source', 'error');
       }
     });
   },
@@ -321,7 +321,7 @@ export const Init ={
       location.reload();
     }).on('click', '.btn-update.false', () => {
       $('.btn-update.false').parent().parent().parent().parent().remove();
-      Errors.panelAlert('Version update stopped. The update prompt will reappear at the next update interval.', 'good');
+      new Alert('Version update stopped. The update prompt will reappear at the next update interval.', 'good');
     })
   }
 };

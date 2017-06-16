@@ -24,7 +24,7 @@ $(() => {
   Init.initializeTheme();
   Init.initHelp();
   Init.getVersion(true);
-  Language.languageManager(app.lang, true);
+  new Language(app.lang, true);
   $('.date_obj').datetimepicker({format: 'MM/DD/YYYY HH:mm'});
   $('.btnAdd').attr('disabled', false);
   $('.btnDel').attr('disabled', true);

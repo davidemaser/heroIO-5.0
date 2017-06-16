@@ -2,7 +2,8 @@
  * Created by David Maser on 09/06/2017.
  */
 import {app} from './Config';
-import {Errors} from './Errors';
+import Alert from './Alert';
+
 export const Storage = {
   /**
    * Saves a json node to localStorage
@@ -26,7 +27,7 @@ export const Storage = {
       }
       localStorage.setItem('pgb_SavedNode_LS', newList);
       localStorage.setItem(`pgb_SavedNode_${name}`, val);
-      Errors.panelAlert('Data Saved To Local Storage', 'good');
+      new Alert('Data Saved To Local Storage', 'good');
     }
   },
   choseLocalSave() {

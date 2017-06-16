@@ -2,7 +2,11 @@
  * Created by David Maser on 09/06/2017.
  */
 import {app} from './Config';
-export const Errors ={
+
+export class Errors{
+  constructor(){
+    this.errorHandler();
+  }
   /**
    * Generic error handler that checks if certain
    * form objects are filled and outputs a dropdown
@@ -80,7 +84,7 @@ export const Errors ={
     } else {
       $(app.objects.el).css('display', 'none');
     }
-  },
+  };
   /**
    * Binds each error item created by the
    * errorHandler function to a click handler
@@ -109,31 +113,5 @@ export const Errors ={
         $(`.${elem}`).wrap('<div class="input_holders"></div>').parent().append(`<div class="input_alerts" title="${prob}"><span class="glyphicon glyphicon-exclamation-sign"></span></div>`)
       }
     });
-  },
-  /**
-   * Panel alert function - Creates a bottom panel alert view
-   * that slides into view with a
-   * defined message.
-   * @param {String} mess Defines the message that will be displayed in the alert panel
-   * @param {String} state State defines the reason for the alert. Can be 'error' or 'good'
-   * @constructor
-   */
-  panelAlert: (mess, state) => {
-    let dispLeng = 10000;
-    if (app.dialog === true) {
-      const mPane = '.panel-body.bottom_level_bt';
-      if (state === app.params.e) {
-        $(mPane).find(app.objects.g).removeClass('allGood').removeClass('glyphicon-ok').addClass('allBad').addClass('glyphicon-remove');
-        dispLeng = app.animation.d.max;
-      } else if (state === app.params.g) {
-        $(mPane).find(app.objects.g).removeClass('allBad').removeClass('glyphicon-remove').addClass('allGood').addClass('glyphicon-ok');
-        dispLeng = 10000;
-      }
-      $(mPane).slideDown();
-      $(mPane).find('.inner_message').html(mess);
-      window.setTimeout(() => {
-        $('.panel-body.bottom_level_bt').slideUp();
-      }, dispLeng);
-    }
-  }
-};
+  };
+}

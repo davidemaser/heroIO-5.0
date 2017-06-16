@@ -3,6 +3,7 @@
  */
 import {app} from './Config';
 import {Errors} from './Errors';
+import Alert from './Alert';
 export const Utilities = {
   /**
    * Checks the users scroll position on the
@@ -65,7 +66,7 @@ export const Utilities = {
   planBify() {
     $('.objHeroPromote').find('option[value="true"]').prop('selected', true);
     $('.objHeroSticky').find('option[value="false"]').prop('selected', true);
-    Errors.panelAlert('Form items have been modified to be Plan B compliant', 'good');
+    new Alert('Form items have been modified to be Plan B compliant', 'good');
   },
   cleanWhitespace() {
     const a = $('#output_code').val();

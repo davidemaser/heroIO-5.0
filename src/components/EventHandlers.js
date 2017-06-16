@@ -10,13 +10,13 @@ import {Language} from './Language';
 import {Validator} from './Validators';
 import {Init} from './Init';
 import {Storage} from './Storage';
-import {Errors} from './Errors';
+import Alert from './Alert';
 $(function(){
 $(app.objects.bo).on('click', '.btnAdd', () => {
   Items.addItems();
 }).on('click', '.app_lang_toggle', () => {
   const lng = $('.app_lang_toggle').attr('data-set-lang');
-  Language.languageManager(lng);
+  new Language(lng);
 }).on('click', '.overlay_close', () => {
   $('.overlay_close').parent().parent().hide();
   $(app.objects.r).css('overflow', 'auto');
@@ -68,16 +68,16 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   Json.validateJSON();
 }).on('click', '.overlay_trim', () => {
   Utilities.cleanWhitespace();
-  Errors.panelAlert('Whitespace and line breaks have been removed.', 'good');
+  new Alert('Whitespace and line breaks have been removed.', 'good');
 }).on('click', '.previewItem.large', (e) => {
   $(app.objects.r).animate({scrollTop: sPos}, app.animation.d.min).css('overflow', 'hidden');
   const a = $('.previewItem.large').data('hero');
-  Preview.previewFeature(a, 'large', pfLang);
+  new Preview(a, 'large', pfLang);
   e.preventDefault();
 }).on('click', '.previewItem.small', (e) => {
   $(app.objects.r).animate({scrollTop: sPos}, app.animation.d.min).css('overflow', 'hidden');
   const a = $('.previewItem.small').data('hero');
-  Preview.previewFeature(a, 'small', pfLang);
+  new Preview(a, 'small', pfLang);
   e.preventDefault();
 }).on('click', '.removeThisItem', () => {
   const a = $('.removeThisItem').data('item');
@@ -158,7 +158,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   $(app.objects.r).css('overflow', 'auto');
   $(app.objects.i).find('.input_alerts').remove();
   $(app.objects.i).contents().unwrap();
-  Errors.panelAlert('Errors Reset', 'good');
+  new Alert('Errors Reset', 'good');
 }).on('click', '.form_reset', e => {
   $(app.objects.r).animate({scrollTop: 0}, app.animation.d.min).css('overflow', 'hidden');
   $('.clonedInput:gt(0)').remove();
@@ -170,7 +170,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   $(app.objects.i).find('.input_alerts').remove();
   $(app.objects.i).contents().unwrap();
   $('.reordered').remove();
-  Errors.panelAlert('Form Reset To Default', 'good');
+  new Alert('Form Reset To Default', 'good');
   e.preventDefault();
 }).on('click', '.itemize_reset', e => {
   Items.resetItems();
@@ -196,9 +196,9 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   $('.btnSwitch').removeClass('view-active');
   $(`.btnSwitch[data-language="${pfLang}"]`).addClass('view-active');
   if ($(app.objects.ro).children().not('.preview_warning').length > 0) {
-    Preview.previewFeature(global.pfHero, global.pfMode, global.pfLang)
+    new Preview(global.pfHero, global.pfMode, global.pfLang)
   }
-  Errors.panelAlert('Preview language changed', 'good');
+  new Alert('Preview language changed', 'good');
   e.preventDefault();
 }).on('click', '.panel-body.bottom_level_bt', () => {
   $('.panel-body.bottom_level_bt').slideUp();
@@ -221,7 +221,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   if (window.localStorage) {
     localStorage.setItem('pgb_Theme', a);
   }
-  Errors.panelAlert('Theme Settings Updated', 'good');
+  new Alert('Theme Settings Updated', 'good');
   e.preventDefault();
 }).on('click', '.moveUpThisItem', function (fn) {
   let a = $(this).data('item');
@@ -237,7 +237,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
   //$(d).closest(app.objects.cl).prev();
   $(this).parent().parent().parent().find('.reordered').remove();
   $(this).parent().parent().parent().find('.btn.btn-info:not(.dropdown-toggle)').prepend('<span title="This entry has been moved from it\'s original position" class="glyphicon glyphicon-fullscreen reordered" aria-hidden="true"></span>');
-  Errors.panelAlert('Item Order Changed', 'good');
+  new Alert('Item Order Changed', 'good');
   fn.preventDefault();
 }).on('click', '.moveDownThisItem', function (fn) {
   let a = $(this).data('item');
@@ -254,9 +254,9 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
     }, app.animation.d.min);
     $(this).parent().parent().parent().find('.reordered').remove();
     $(this).parent().parent().parent().find('.btn.btn-info:not(.dropdown-toggle)').prepend('<span title="This entry has been moved from it\'s original position" class="glyphicon glyphicon-fullscreen reordered" aria-hidden="true"></span>');
-    Errors.panelAlert('Item Order Changed', 'good');
+    new Alert('Item Order Changed', 'good');
   } else {
-    Errors.panelAlert('If I move down any further, I\'ll be off the page.', 'error');
+    new Alert('If I move down any further, I\'ll be off the page.', 'error');
   }
   fn.preventDefault();
 }).on('keyup', 'input', function () {
@@ -332,7 +332,7 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
       Json.traverseJSON(true, a);
       $('#loadandsave-zone').css('display', 'none');
     } else {
-      Errors.panelAlert('Please select a valid data item from the dropdown', 'error');
+      new Alert('Please select a valid data item from the dropdown', 'error');
     }
   } catch (e) {
 
@@ -406,9 +406,9 @@ $(document).on('keydown', e => {
     $('.btnSwitch').removeClass('view-active');
     $(`.btnSwitch[data-language="${pfLang}"]`).addClass('view-active');
     if ($(app.objects.ro).children().not('.preview_warning').length > 0) {
-      Preview.previewFeature(global.pfHero, global.pfMode, global.pfLang);
+      new Preview(global.pfHero, global.pfMode, global.pfLang);
     }
-    Errors.panelAlert('Preview language changed', 'good');
+    new Alert('Preview language changed', 'good');
     e.preventDefault();
   }
   if (e.keyCode === 191 && e.ctrlKey) {

@@ -6,16 +6,17 @@ import {app} from './Config';
 import {Items} from './Items';
 import {Errors} from './Errors';
 import {Storage} from './Storage';
+import Alert from './Alert';
 export const Json = {
   validateJSON() {
     $("#output_code").validateJSON({
       compress: false,
       reformat: true,
       onSuccess: (json) => {
-        Errors.panelAlert('JSON Code is valid', 'good');
+        new Alert('JSON Code is valid', 'good');
       },
       onError: (error) => {
-        Errors.panelAlert('A JSON error has been encountered. The line on which the error has occured is highlighted.', 'error');
+        new Alert('A JSON error has been encountered. The line on which the error has occured is highlighted.', 'error');
       }
     })
   },
@@ -47,13 +48,13 @@ export const Json = {
       if (storage === false) {
         ctc = $(`${app.objects.b} textarea`).val();
         if (ctc === '') {
-          Errors.panelAlert('Form Does Not Contain JSON Data', 'error');
+          new Alert('Form Does Not Contain JSON Data', 'error');
         }
       } else if (storage === true && nodeName !== '') {
         if (localStorage.getItem(`pgb_SavedNode_${nodeName}`) !== undefined && localStorage.getItem(`pgb_SavedNode_${nodeName}`) !== null && localStorage.getItem(`pgb_SavedNode_${nodeName}`) !== '') {
           ctc = localStorage.getItem(`pgb_SavedNode_${nodeName}`).replace(',null', '');
         } else {
-          Errors.panelAlert('No Data Found In Local Storage', 'error');
+          new Alert('No Data Found In Local Storage', 'error');
         }
       }
       let prs = JSON.parse(ctc);
@@ -72,18 +73,18 @@ export const Json = {
         formArray.push(obj[i]);
       }
       this.jsonToForm(formArray);
-      Errors.panelAlert('Data Translated To Form', 'good');
+      new Alert('Data Translated To Form', 'good');
     } else if (fromAJAX !== '') {
       if (storage === false) {
         ctc = fromAJAX;
         if (ctc === '') {
-          Errors.panelAlert('Form Does Not Contain JSON Data', 'error');
+          new Alert('Form Does Not Contain JSON Data', 'error');
         }
       } else if (storage === true && nodeName !== '') {
         if (localStorage.getItem(`pgb_SavedNode_${nodeName}`) !== undefined && localStorage.getItem(`pgb_SavedNode_${nodeName}`) !== null && localStorage.getItem(`pgb_SavedNode_${nodeName}`) !== '') {
           ctc = localStorage.getItem(`pgb_SavedNode_${nodeName}`).replace(',null', '');
         } else {
-          Errors.panelAlert('No Data Found In Local Storage', 'error');
+          new Alert('No Data Found In Local Storage', 'error');
         }
       }
       let prs = JSON.parse(ctc);
@@ -102,9 +103,9 @@ export const Json = {
         formArray.push(obj[i]);
       }
       this.jsonToForm(formArray);
-      Errors.panelAlert('Data Translated To Form', 'good');
+      new Alert('Data Translated To Form', 'good');
     } else {
-      Errors.panelAlert('Please generate or paste JSON before using this function', 'error');
+      new Alert('Please generate or paste JSON before using this function', 'error');
     }
   },
   /**
@@ -147,7 +148,7 @@ export const Json = {
       $(formEl).find('.objButtonLink').val(aCode[i].button.url);
       if (aCode[i].date.delay === true || aCode[i].date.delay === false) {
         window.setTimeout(() => {
-          Errors.panelAlert('Some delay entries are not numerical. Make sure to set all delay entries to a numerical value manually.', 'error');
+          new Alert('Some delay entries are not numerical. Make sure to set all delay entries to a numerical value manually.', 'error');
         }, 2000);
       } else if (aCode[i].date.delay === '' || aCode[i].date.delay === null || aCode[i].date.delay === undefined || aCode[i].date.delay === 'undefined') {
         $(formEl).find('.objDelay').val(0);
@@ -363,14 +364,14 @@ export const Json = {
         $(`${app.objects.o} textarea`).val(page_model);
         $(app.objects.r).animate({scrollTop: 0}, app.animation.d.min).css('overflow', 'hidden');
         if (mode === 'hero') {
-          Errors.errorHandler();
+          new Errors();
         }
-        Errors.panelAlert('JSON Exported Successfully', 'good');
+        new Alert('JSON Exported Successfully', 'good');
       } else {
         Storage.saveNodeToLS(page_model, name);
       }
     } catch (e) {
-      Errors.panelAlert('An unknown error has occured. Please make sure all required fields are filled.', 'error');
+      new Alert('An unknown error has occured. Please make sure all required fields are filled.', 'error');
     }
   }
 };

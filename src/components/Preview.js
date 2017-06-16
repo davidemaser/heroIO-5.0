@@ -2,7 +2,14 @@
  * Created by David Maser on 09/06/2017.
  */
 import {app} from './Config';
-export const Preview = {
+
+export class Preview{
+  constructor(heroItem,mode,lang){
+    this.heroItem = heroItem;
+    this.mode = mode;
+    this.lang = lang;
+    this.previewFeature(this.heroItem,this.mode,this.lang);
+  }
 
   /**
    *
@@ -65,4 +72,4 @@ export const Preview = {
       $(target).removeClass('renderSmall').attr('data-hero', heroItem).attr('data-language', lang).attr('data-mode', mode);
     }
   }
-};
+}
