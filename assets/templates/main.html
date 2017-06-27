@@ -7,6 +7,7 @@
     <title>Page Builder</title>
 </head>
 <body data-nmode="hero">
+
 <div class="com_API_local" data-read="remote" data-display="raw">
     <div class="com_API_message">
         <div class="com_API_prog" value="0" max="419"></div>
@@ -43,15 +44,15 @@
                     <span class="micro-aid">CTRL+G</span></a></li>
                 <li data-role="hero"><a href="#" class="app_info_toggle translate_json" data-lang-id="action6" id="translate_json" title="CTRL+ALT+ENTER">Translate
                     JSON <span class="micro-aid">CTRL+ALT+ENTER</span></a></li>
-                <li data-role="hero"><a href="#" class="translate_from_server" data-server="tlh" data-nmode="hero" data-lang-id="action20" data-version="4.1">Translate JSON From TLH</a></li>
-                <li data-role="hero"><a href="#" class="translate_from_server" data-server="alti" data-nmode="hero" data-lang-id="action21" data-version="4.1">Translate JSON From ALTI</a></li>
+                <li data-role="hero"><a href="#" class="translate_from_server" data-server="tlh" data-nmode="hero" data-lang-id="action20" data-version="4.1">Translate JSON From <%= htmlWebpackPlugin.options.case1 %></a></li>
+                <li data-role="hero"><a href="#" class="translate_from_server" data-server="alti" data-nmode="hero" data-lang-id="action21" data-version="4.1">Translate JSON From <%= htmlWebpackPlugin.options.case2 %></a></li>
                 <li class="divider"></li>
                 <li data-role="hero"><a href="#" class="app_info_toggle save_json" data-lang-id="action7" id="save_json" title="CTRL+SHIFT+S">Save For Later
                     <span class="micro-aid">CTRL+SHIFT+S</span></a></li>
                 <li data-role="hero"><a href="#" class="app_info_toggle import_json" data-lang-id="action8" id="import_json" title="CTRL+ALT+INSERT">Import From
                     Save <span class="micro-aid">CTRL+ALT+INSERT</span></a></li>
                 <li class="divider" data-role="hero"></li>
-                <li data-role="hero"><a href="#" class="app_info_toggle planb_friendly" data-lang-id="action16" id="planb_friendly" data-version="3.2.1">Format For ALTIFY</a></li>
+                <li data-role="hero"><a href="#" class="app_info_toggle planb_friendly" data-lang-id="action16" id="planb_friendly" data-version="3.2.1">Format For <%= htmlWebpackPlugin.options.case3 %></a></li>
                 <li class="divider" data-role="hero"></li>
                 <li data-role="hero"><a href="#" class="errors_reset" data-lang-id="action9">Reset Errors</a></li>
                 <li><a href="#" class="form_reset" data-lang-id="action10">Reset Form</a></li>

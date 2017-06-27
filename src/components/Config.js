@@ -11,6 +11,11 @@ export const app = {
       url: "https://cdn.shopify.com/s/files/1/1230/9376/t/2/assets/ALTI-banners.json"
     }]
   },
+  special:{
+    case1: 'TLH',
+    case2: 'ALTI',
+    case3: 'ALTIFY'
+  },
   lang: "en_EN",
   user: "guest",
   callback: true,

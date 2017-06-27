@@ -70,6 +70,9 @@ module.exports = {
     ] : [
       new HtmlWebPackPlugin(
         {
+          case1: 'TLH',
+          case2: 'ALTI',
+          case3: 'ALTIFY',
           template:'assets/templates/main.html',
           inject:'head',
           cache:true,
