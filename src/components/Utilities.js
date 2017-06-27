@@ -66,7 +66,7 @@ export const Utilities = {
   planBify() {
     $('.objHeroPromote').find('option[value="true"]').prop('selected', true);
     $('.objHeroSticky').find('option[value="false"]').prop('selected', true);
-    new Alert('Form items have been modified to be Plan B compliant', 'good');
+    new Alert('Form items have been modified to be compliant', 'good');
   },
   cleanWhitespace() {
     const a = $('#output_code').val();

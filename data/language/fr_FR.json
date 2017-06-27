@@ -29,11 +29,11 @@
           },
           {
             "id": "action20",
-            "translate": "Translate JSON De TLH"
+            "translate": "Traduire JSON De TLH"
           },
           {
             "id": "action21",
-            "translate": "Translate JSON De ALTI"
+            "translate": "Traduire JSON De ALTI"
           },
           {
             "id": "action7",
@@ -73,7 +73,7 @@
           },
           {
             "id": "action16",
-            "translate": "Formater pour ALTIFY"
+            "translate": "Formater pour <%= htmlWebpackPlugin.options.case3 %>"
           },
           {
             "id": "action17",
