@@ -16357,7 +16357,7 @@ const Utilities = {
   planBify() {
     $('.objHeroPromote').find('option[value="true"]').prop('selected', true);
     $('.objHeroSticky').find('option[value="false"]').prop('selected', true);
-    new __WEBPACK_IMPORTED_MODULE_2__Alert__["a" /* default */]('Form items have been modified to be Plan B compliant', 'good');
+    new __WEBPACK_IMPORTED_MODULE_2__Alert__["a" /* default */]('Form items have been modified to be compliant', 'good');
   },
   cleanWhitespace() {
     const a = $('#output_code').val();
