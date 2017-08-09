@@ -92,12 +92,12 @@ var version = {
                 }
                 builder += '</ul></div>';
                 builder += '</div>';
-                builder += '<div class="panel panel-default"><div class="panel-heading">Errors <span class="badge">'+prj_errors.length+'</span><span class="partridge glyphicon glyphicon-option-vertical"></span></div>';
+                builder += '<div class="panel panel-default error-list"><div class="panel-heading">Errors <span class="badge">'+prj_errors.length+'</span><span class="partridge glyphicon glyphicon-option-vertical"></span></div>';
                 for(var k=0; k<prj_errors.length; k++) {
                     builder += '<div class="panel-body"><div class="object lineitem"><h4><span class="label label-danger line-error" title="Source Line">'+prj_errors[k].line+'</span></h4></div><div class="object lineitem">'+prj_errors[k].file+'</div><div class="object lineitem">'+prj_errors[k].issue+'</div><div class="object lineitem"><div class="btn-group"><button type="button" class="btn btn-default">Fixes</button><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"><li role="presentation"><a role="menuitem" tabindex="'+[k]+'" href="#">'+prj_errors[k].fix.solution+'</a></li><li role="presentation"><a role="menuitem" tabindex="'+[k]+'" href="#">Applied : '+prj_errors[k].fix.applied+'</a></li></ul></div></div></div>';            }
                 builder += '</div>';
 
-                builder += '<div class="panel panel-default"><div class="panel-heading">Updates <span class="badge">'+prj_updates.length+'</span><span class="partridge glyphicon glyphicon-option-vertical"></span></div>';
+                builder += '<div class="panel panel-default update-list"><div class="panel-heading">Updates <span class="badge">'+prj_updates.length+'</span><span class="partridge glyphicon glyphicon-option-vertical"></span></div>';
                 for(var i=0; i<prj_updates.length; i++) {
                     builder += '<div class="panel-body"><div class="object lineitem"><h4><span class="label label-primary line-update" title="Source Line">'+prj_updates[i].line+'</span></h4></div><div class="object lineitem">'+prj_updates[i].file+'</div><div class="object lineitem">'+prj_updates[i].structure+'</div><div class="object lineitem">'+prj_updates[i].utility+'</div><div class="object lineitem"><div class="btn-group"><button type="button" class="btn btn-default">Update Status</button><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"><li role="presentation"><a role="menuitem" href="#">Scoped : '+prj_updates[i].appstatus.scoped+'</a></li><li role="presentation"><a role="menuitem" href="#">Version : '+prj_updates[i].appstatus.version+'</a></li><li role="presentation"><a role="menuitem" href="#">Candidate : '+prj_updates[i].appstatus.candidate+'</a></li><li role="presentation"><a role="menuitem" href="#">Request : '+prj_updates[i].appstatus.request+'</a></li></ul></div>';                if(prj_updates[i].appstatus.scoped == true){
                         builder += '<div class="object checks"><span class="glyphicon glyphicon-ok-circle"></span></div>';
@@ -106,7 +106,7 @@ var version = {
                 }
                 builder += ' </div>';
                 //history
-                builder += '<div class="panel panel-default"><div class="panel-heading">History <span class="badge">'+prj_history.length+'</span><span class="partridge glyphicon glyphicon-option-horizontal"></span></div>';
+                builder += '<div class="panel panel-default history-list"><div class="panel-heading">History <span class="badge">'+prj_history.length+'</span><span class="partridge glyphicon glyphicon-option-horizontal"></span></div>';
                 for(var i=0; i<prj_history.length; i++) {
                     builder += '<div class="panel-body topelement"><div class="object lineitem"><h4><span class="label label-primary line-update" title="Version">'+prj_history[i].version+'</span></h4></div><div class="object lineitem">'+prj_history[i].date+'</div>';
                     builder += '<div class="object lineitem">';
