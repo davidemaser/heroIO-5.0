@@ -2,6 +2,7 @@ let webpack = require('webpack');
 let HtmlWebPackPlugin = require('html-webpack-plugin');
 let path = require('path');
 let PROD = JSON.parse(process.env.PROD_ENV || '0');
+
 module.exports = {
   entry: './src/app.js',
   watch:true,

@@ -1,14 +1,15 @@
 /**
  * Created by david-maser on 04/06/15.
  */
-let global_v = '';
+import {app} from './Config';
+let globalVersion = '';
 export const Version = {
     printVersion:function(ver){
         global_v = ver;
         console.log(ver);
     },
-    checkDecadent:function(verl){
-        if(global_v <= verl){
+    checkDecadent:function(ver){
+        if(globalVersion <= ver){
             return 0;
         }else{
             return 1;
@@ -188,19 +189,24 @@ export const Version = {
                 });
             },
             error:function(){
-                $('#insta-holder').append('<h1>Error</h1><p>Woops, looks like we\'re unable to load the data at this time.</p>');
+                $('#insta-holder').append(app.errors.common);
             },
             dataType:'json'
         })
     }
 };
 $(function(){
-    setTimeout("$('.panel-body:not(.topelement)').css('display','none')",500);
-
+  window.setTimeout(function(){
+    $('.panel-body:not(.topelement)').css('display','none');
+  },500);
     $('.topelement').click(function(){
         $(this).closest('.subitem').toggle();
     });
-    setTimeout("$('.version_check').click()",2000);
-    setTimeout("$('.updalert').hide(200)",8000);
+  window.setTimeout(function(){
+    $('.version_check').click();
+  },2000);
+  window.setTimeout(function(){
+    $('.updalert').hide(200);
+  },8000);
 });
 Version.loadJSON();

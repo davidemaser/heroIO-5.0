@@ -4,7 +4,7 @@
 import {app} from './Config';
 export const Validator = {
   urlExists(testUrl) {
-    const http = jQuery.ajax({
+    const http = $.ajax({
       type: "HEAD",
       url: `https:${testUrl}`,
       async: false
@@ -27,7 +27,7 @@ export const Validator = {
       let aa = $(`${app.objects.c}[${app.handlers.d}="${handler}"]`).parent().parent().parent().parent().parent().parent().parent().parent().find('.main_image');
       let aaa = $(`${app.objects.c}[${app.handlers.d}="${handler}"]`).parent().parent().parent().parent().parent().parent().parent().parent().find('.main_image').parent().attr('class');
       if (a !== '') {
-        let b = core.urlExists(a);
+        let b = Validator.urlExists(a);
         if (b !== 200) {
           if (aaa === 'input_holders') {
             $(aa).next().next().css('background-color', '#ff3300').css('font-weight', 'bold').css('color', '#fff').html('Image does not exist');
@@ -59,7 +59,7 @@ export const Validator = {
       let aa = $(`${app.objects.ca}[${app.handlers.d}="${handler}"]`).parent().parent().parent().parent().parent().parent().parent().parent().find('.alt_image');
       let aaa = $(`${app.objects.ca}[${app.handlers.d}="${handler}"]`).parent().parent().parent().parent().parent().parent().parent().parent().find('.alt_image').parent().attr('class');
       if (a !== '') {
-        b = core.urlExists(a);
+        b = Validator.urlExists(a);
         if (b !== 200) {
           if (aaa === 'input_holders') {
             $(aa).next().next().css('background-color', '#ff3300').css('font-weight', 'bold').css('color', '#fff').html('Image does not exist');

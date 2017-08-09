@@ -16,6 +16,9 @@ export const app = {
     case2: 'ALTI',
     case3: 'ALTIFY'
   },
+  errors:{
+    common:'<h1>Error</h1><p>Woops, looks like we\'re unable to load the data at this time.</p>'
+  },
   lang: "en_EN",
   user: "guest",
   callback: true,
@@ -74,8 +77,8 @@ export const app = {
     n: 'pgb_SavedNode_LS'
   },
   language: {
-    e: 'en',
-    f: 'fr'
+    e: 'en_EN',
+    f: 'fr_FR'
   },
   animation: {
     d: {

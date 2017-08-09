@@ -20,20 +20,22 @@ export class Preview{
    */
   previewFeature(heroItem, mode, lang) {
     const dt = $(app.objects.e + heroItem).find('form').find('fieldset[data-role="hero"]').serializeArray();
+    console.log(dt[2],lang,app.language.e,app.language.f)
+
     const start = dt[0].value;
     const img = dt[9].value;
     const titleColor = dt[4].value;
     let outputString,titleText,subTitleText,buttonLabel,endsLabel;
     if (lang === app.language.e) {
-      let titleText = dt[2].value;
-      let subTitleText = dt[5].value;
-      let buttonLabel = dt[11].value;
-      let endsLabel = 'Ends In';
+      titleText = dt[2].value;
+      subTitleText = dt[5].value;
+      buttonLabel = dt[11].value;
+      endsLabel = 'Ends In';
     } else if (lang === app.language.f) {
-      let titleText = dt[3].value;
-      let subTitleText = dt[6].value;
-      let buttonLabel = dt[12].value;
-      let endsLabel = 'Termine dans';
+      titleText = dt[3].value;
+      subTitleText = dt[6].value;
+      buttonLabel = dt[12].value;
+      endsLabel = 'Termine dans';
     }
     const buttonLink = dt[11].value;
     const container = app.objects.h;

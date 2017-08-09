@@ -7,7 +7,6 @@ import "../assets/lib/bootstrap.min.css";
 import '../assets/lib/bootstrap.min';
 import '../assets/lib/bootstrap-datetimepicker.min';
 import '../assets/fonts/webFont.css';
-//import 'moment'; let webpack resolve moment in the assets/lib folder
 import {app} from './components/Config';
 import {Init} from './components/Init';
 import {Language} from './components/Language';

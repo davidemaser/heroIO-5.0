@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "Page Builder",
-    "version": "5.0",
+    "version": "5.0.1",
     "author": "David Maser",
     "licensing": "MIT",
     "revision": "8",
@@ -109,6 +109,15 @@
         "issue": "Activate Hero value not translating to form",
         "fix": {
           "solution": "Recode conditional validation",
+          "applied": true
+        }
+      },
+      {
+        "file": "app.js -> components/EventHandlers.js",
+        "line": 191,
+        "issue": "Wrong language ID provided",
+        "fix": {
+          "solution": "Update language hash",
           "applied": true
         }
       }
@@ -973,7 +982,21 @@
             "codestatus": "working"
           }
         ]
+      },
+      {
+      "version": "5.0.1",
+      "date": "08/09/2017",
+      "failsafe": "minor",
+      "author": "David Maser",
+      "codeblocks": [
+      {
+      "item": "Update schema relations. Fix language preview feature",
+      "revision": "minor",
+      "impact": "global",
+      "codestatus": "working"
       }
+      ]
+    }
     ]
   }
 }

@@ -73,7 +73,7 @@
           },
           {
             "id": "action16",
-            "translate": "Formater pour <%= htmlWebpackPlugin.options.case3 %>"
+            "translate": "Formater pour ALTIFY"
           },
           {
             "id": "action17",

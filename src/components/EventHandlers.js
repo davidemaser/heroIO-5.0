@@ -72,12 +72,12 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
 }).on('click', '.previewItem.large', (e) => {
   $(app.objects.r).animate({scrollTop: sPos}, app.animation.d.min).css('overflow', 'hidden');
   const a = $('.previewItem.large').data('hero');
-  new Preview(a, 'large', pfLang);
+  new Preview(a, 'large', global.pfLang);
   e.preventDefault();
 }).on('click', '.previewItem.small', (e) => {
   $(app.objects.r).animate({scrollTop: sPos}, app.animation.d.min).css('overflow', 'hidden');
   const a = $('.previewItem.small').data('hero');
-  new Preview(a, 'small', pfLang);
+  new Preview(a, 'small', global.pfLang);
   e.preventDefault();
 }).on('click', '.removeThisItem', () => {
   const a = $('.removeThisItem').data('item');
@@ -191,10 +191,10 @@ $(app.objects.bo).on('click', '.btnAdd', () => {
 }).on('click', '.image_count', () => {
   $('.image_count').attr('style', '');
   $('.image_count').text('Shopify CDN');
-}).on('click', '.btnSwitch', (e) => {
-  pfLang = $('.btnSwitch').data('language');
+}).on('click', '.btnSwitch', function(e){
+  global.pfLang = $(this).data('language');
   $('.btnSwitch').removeClass('view-active');
-  $(`.btnSwitch[data-language="${pfLang}"]`).addClass('view-active');
+  $(`.btnSwitch[data-language="${global.pfLang}"]`).addClass('view-active');
   if ($(app.objects.ro).children().not('.preview_warning').length > 0) {
     new Preview(global.pfHero, global.pfMode, global.pfLang)
   }
@@ -398,13 +398,13 @@ $(document).on('keydown', e => {
     Storage.choseLocalSave();
   }
   if (e.keyCode === 69 && e.ctrlKey && e.altKey) {
-    if (pfLang === app.language.e) {
-      pfLang = app.language.f;
-    } else if (pfLang === app.language.f) {
-      pfLang = app.language.e;
+    if (global.pfLang === app.language.e) {
+      global.pfLang = app.language.f;
+    } else if (global.pfLang === app.language.f) {
+      global.pfLang = app.language.e;
     }
     $('.btnSwitch').removeClass('view-active');
-    $(`.btnSwitch[data-language="${pfLang}"]`).addClass('view-active');
+    $(`.btnSwitch[data-language="${global.pfLang}"]`).addClass('view-active');
     if ($(app.objects.ro).children().not('.preview_warning').length > 0) {
       new Preview(global.pfHero, global.pfMode, global.pfLang);
     }
