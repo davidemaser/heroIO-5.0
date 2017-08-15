@@ -210,7 +210,7 @@ label {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
 
 .sub {
-  width: 980px;
+  width: 100%;
   margin: 0 auto; }
 
 .info-group {
@@ -854,7 +854,7 @@ input.hero_num {
   padding: 5px 50px; }
   .question_num .subs, .question_loader .subs, .saveme_loader .subs {
     background-color: #fff;
-    width: 980px;
+    width: 100%;
     margin: 50px auto;
     top: 50px; }
 
