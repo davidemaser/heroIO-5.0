@@ -3,13 +3,15 @@
  */
 export const app = {
   server: {
-    accepted: [{
-      alias: "tlh",
-      url: "https://cdn.shopify.com/s/files/1/0050/3522/t/22/assets/banners.json"
-    }, {
-      alias: "alti",
-      url: "https://cdn.shopify.com/s/files/1/1230/9376/t/2/assets/ALTI-banners.json"
-    }]
+    accepted: [
+      {
+        alias: "tlh",
+        url: "https://cdn.shopify.com/s/files/1/0050/3522/t/22/assets/banners.json"
+      }, {
+        alias: "alti",
+        url: "https://cdn.shopify.com/s/files/1/1230/9376/t/2/assets/ALTI-banners.json"
+      }
+    ]
   },
   special:{
     case1: 'TLH',
@@ -17,7 +19,8 @@ export const app = {
     case3: 'ALTIFY'
   },
   errors:{
-    common:'<h1>Error</h1><p>Woops, looks like we\'re unable to load the data at this time.</p>'
+    common:'<h1>Error</h1><p>Woops, looks like we\'re unable to load the data at this time.</p>',
+    list:'.errorList'
   },
   lang: "en_EN",
   user: "guest",
@@ -60,12 +63,22 @@ export const app = {
       l: "schema/layout.json"
     }
   },
+  buttons:{
+    mode:'.btnNmode'
+  },
+  messages:{
+    overlay:'.overlay_message'
+  },
   handlers: {
     d: 'data-handler',
     t: 'data-theme',
     i: 'data-item',
     r: 'data-reason',
     s: 'data-split'
+  },
+  selectors: {
+    number:'.num_select',
+    lsl:'.lsl_select'
   },
   params: {
     s: 'small',
@@ -85,5 +98,8 @@ export const app = {
       min: 500,
       max: 5000
     }
+  },
+  images:{
+    counter:'.image_count'
   }
 };

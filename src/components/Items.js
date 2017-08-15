@@ -84,7 +84,7 @@ export const Items = {
   /**
    * Delete items from the form instance and
    * removes them from the dom reference
-   * @param {String} elem Defines the DOM element that is targeted for deletion
+   * @param {String=} elem Defines the DOM element that is targeted for deletion
    * @returns {boolean}
    * @constructor
    */
