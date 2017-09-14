@@ -21,11 +21,15 @@ export class Language{
     lng = $(app.dom.h).attr('data-language') || lng;
     switch (lng) {
       case "en_EN":
+      case "en":
+      case "EN":
         newLang = 'fr_FR';
         $('.app_lang_toggle').attr('data-set-lang', newLang);
         init !== true ? $(app.dom.h).attr('data-language', newLang) : null;
         break;
       case "fr_FR":
+      case "fr":
+      case "FR":
         newLang = 'en_EN';
         $('.app_lang_toggle').attr('data-set-lang', newLang);
         init !== true ? $(app.dom.h).attr('data-language', newLang) : null;
